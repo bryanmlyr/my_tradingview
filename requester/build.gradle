@@ -1,0 +1,29 @@
+plugins {
+    id 'scala'
+    id 'application'
+    id "com.lightbend.akka.grpc.gradle" version "2.2.1"
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.spark:spark-sql_2.12:3.2.3'
+    implementation 'org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.3'
+
+    implementation 'com.typesafe.akka:akka-actor-typed_2.12:2.7.0'
+    implementation 'com.typesafe.akka:akka-discovery_2.12:2.7.0'
+    implementation 'com.typesafe.akka:akka-protobuf_2.12:2.7.0'
+    implementation 'com.typesafe.akka:akka-stream_2.12:2.7.0'
+    implementation 'com.typesafe.akka:akka-pki_2.12:2.7.0'
+
+    implementation 'com.typesafe.akka:akka-http_2.12:10.4.0'
+    implementation 'com.typesafe.akka:akka-http2-support_2.12:10.4.0'
+}
+
+task runServer(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'requester.RequesterServer'
+}

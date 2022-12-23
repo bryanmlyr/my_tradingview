@@ -1,0 +1,29 @@
+plugins {
+    id 'scala'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.scala-lang:scala-library:2.13.9'
+
+    implementation 'io.temporal:temporal-sdk:1.17.0'
+
+    implementation 'com.typesafe.akka:akka-http-core_2.13:10.4.0'
+    implementation 'com.typesafe.akka:akka-http-jackson_2.13:10.4.0'
+
+    implementation 'com.typesafe.akka:akka-actor_2.13:2.7.0'
+    implementation 'com.typesafe.akka:akka-stream_2.13:2.7.0'
+
+    implementation 'com.typesafe.akka:akka-stream-kafka_2.13:4.0.0'
+    implementation "com.typesafe.akka:akka-stream_2.13:2.7.0"
+
+    implementation 'com.fasterxml.jackson.module:jackson-module-scala:2.1.2'
+}
+
+application {
+    mainClass = "Starter"
+}

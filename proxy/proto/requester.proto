@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package requester;
+
+service RequesterService {
+  rpc RequestTimeSeries (RequesterRequest) returns (RequesterReply) {}
+  rpc RequestListSymbols (RequestListSymbolsRequest) returns (RequestListSymbolReplay) {}
+}
+
+message RequestListSymbolsRequest {}
+
+message RequestListSymbolReplay {
+  repeated string symbols = 1;
+}
+
+message RequesterRequest {
+  string symbol = 1;
+  double from = 2;
+  double to = 3;
+}
+
+message TimeSeries {
+  uint64 timestamp = 1;
+  double price = 2;
+  double open = 3;
+  double high = 4;
+  double low = 5;
+}
+
+message RequesterReply {
+  repeated TimeSeries res = 1;
+}

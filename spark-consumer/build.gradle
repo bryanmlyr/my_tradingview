@@ -1,0 +1,20 @@
+plugins {
+    id 'scala'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.scala-lang:scala-library:2.13'
+
+    implementation 'org.apache.spark:spark-sql_2.13:3.2.3'
+    implementation 'org.apache.spark:spark-sql-kafka-0-10_2.13:3.2.3'
+
+}
+
+application {
+    mainClass = "Main"
+}
